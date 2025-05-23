@@ -203,6 +203,14 @@ nav a {
 .insta-icon img {
     border: 2px solid red; /* Just for testing */
 }
+a img {
+    transition: transform 0.2s ease-in-out;
+}
+a:hover img {
+    transform: scale(1.1);
+}
+
+
 
 
 
