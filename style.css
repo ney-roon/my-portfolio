@@ -205,11 +205,19 @@ nav a {
 }
 a img {
     display: block;
+    margin: auto;
     transition: transform 0.2s ease-in-out;
 }
 a:hover img {
     transform: scale(1.1);
 }
+.whatsapp-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px; /* Adjust to move it to the right */
+    width: 50px;
+}
+
 
 
 
