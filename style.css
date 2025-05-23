@@ -204,6 +204,7 @@ nav a {
     border: 2px solid red; /* Just for testing */
 }
 a img {
+    display: block;
     transition: transform 0.2s ease-in-out;
 }
 a:hover img {
