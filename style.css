@@ -205,7 +205,10 @@ a:hover img {
     right: 20px; /* Adjust to move it to the right */
     width: 40px;
 }
+<<<<<<< HEAD
 /* Hover Effect */
+=======
+>>>>>>> 41706a627f2230fca8e397efdf259b4dbbc5493c
 .odoo-icon:hover {
     transform: scale(1.3);  /* Slight zoom-in effect */
     opacity: 0.8;           /* Adds a fade effect */
