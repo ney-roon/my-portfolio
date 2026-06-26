@@ -287,7 +287,46 @@ a:hover img {
 
 .modal {
     animation: fadeIn 0.4s ease;
+}.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: 20px auto;
 }
+.contact-form input, .contact-form textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.contact-form button {
+    padding: 10px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.contact-form button:hover {
+    background: #555;
+}
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    background: #333;
+    color: white;
+    cursor: pointer;
+    display: none;
+}
+#backToTop:hover {
+    background: #555;
+}
+
 
 
 
