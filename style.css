@@ -219,13 +219,14 @@ section {
 .scroll-track {
   display: flex;
   gap: 30px;
+  align-items: center;
   animation: scroll-left 40s linear infinite; /* smooth scrolling */
 }
 
 .scroll-container img {
   height: 200px;           /* consistent height */
   width: auto;             /* keep aspect ratio */
-  object-fit: cover;       /* fills neatly */
+  object-fit: contain;       /* fills neatly */
   border-radius: 8px;
   cursor: pointer;
   transition: transform 0.3s ease;
