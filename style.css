@@ -315,7 +315,7 @@ section {
 .art-scroll-track img {
   height: 50px;
   width: auto;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 8px;
 }
 
