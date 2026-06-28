@@ -299,30 +299,35 @@ section {
 }
 .art-scroll-container {
   overflow: hidden;
-  white-space: nowrap;
+  height: 250px;
+  position: relative;
 }
 
 .art-scroll-track {
-  display: inline-flex;
+  display: flex;
+  gap: 30px;
+  align-items: center;
   animation: scroll-right 40s linear infinite;
 }
 
-.art-scroll-track .placeholder {
-  flex: 0 0 auto;
-  margin-right: 15px;
+.art-scroll-track img.responsive-image {
+  height: 200px;
+  width: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-.art-scroll-track img {
-  height: 50px;
-  width: auto;
-  object-fit: contain;
-  border-radius: 8px;
+.art-scroll-track img.responsive-image:hover {
+  transform: scale(1.05);
 }
 
 @keyframes scroll-right {
-  0%   { transform: translateX(-100%); }
+  0%   { transform: translateX(-50%); }
   100% { transform: translateX(0); }
 }
+
 
 header {
   position: relative;
