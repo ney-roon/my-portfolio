@@ -100,3 +100,19 @@ backBtn.addEventListener("click", () => {
   widgetPanel.style.display = "flex";
 });
 
+// Handle image upload and add to gallery
+document.getElementById('addImage').addEventListener('change', function(event) {
+  const file = event.target.files[0];
+  if (file) {
+    const img = document.createElement('img');
+    img.src = URL.createObjectURL(file); // temporary preview
+    img.alt = "user-uploaded";           // fallback alt text
+    img.classList.add('responsive-image');
+
+    // Append to art gallery track
+    document.getElementById('artTrack').appendChild(img);
+
+    // Optional: reset file input so you can upload again
+    event.target.value = "";
+  }
+});
