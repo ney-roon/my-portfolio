@@ -78,7 +78,7 @@ widgetButtons.forEach(btn => {
     const filter = btn.getAttribute("data-filter");
 
     // Hide widgets, show grid + back button
-    widgetPanel.style.display = "none";
+    widgetPanel.style.display = "none"; 
     artGrid.style.display = "grid";
     backBtn.style.display = "block";
 
