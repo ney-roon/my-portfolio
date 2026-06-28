@@ -54,9 +54,53 @@ section {
     text-align: center;
 }
 
+/* Gallery Widgets */
+.gallery-widgets {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    animation: fadeSlideIn 1s ease;
+}
+
+.widget-btn {
+    padding: 10px 15px;
+    background: rgba(50, 50, 50, 0.8);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.widget-btn:hover {
+    transform: scale(1.1);
+    background: rgba(80, 80, 80, 0.9);
+}
+
+@keyframes fadeSlideIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Back Button */
+#backBtn {
+    margin: 10px auto;
+    display: none;
+    padding: 8px 12px;
+    background: rgba(50,50,50,0.8);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+#backBtn:hover {
+    background: rgba(80,80,80,0.9);
+}
+
 /* Gallery Grid */
 .art-grid {
-    display: grid;
+    display: none; /* hidden until a widget is clicked */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 12px;
     margin: 20px auto;
@@ -211,31 +255,27 @@ section {
 
 /* Moving Gallery */
 .scroll-container {
-  overflow: hidden;        /* viewport window */
-  height: 250px;           /* adjust based on tallest image */
+  overflow: hidden;
+  height: 250px;
   position: relative;
 }
-
 .scroll-track {
   display: flex;
   gap: 30px;
   align-items: center;
-  animation: scroll-left 40s linear infinite; /* smooth scrolling */
+  animation: scroll-left 40s linear infinite;
 }
-
 .scroll-container img {
-  height: 200px;           /* consistent height */
-  width: auto;             /* keep aspect ratio */
-  object-fit: contain;       /* fills neatly */
+  height: 200px;
+  width: auto;
+  object-fit: contain;
   border-radius: 8px;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-
 .scroll-container img:hover {
   transform: scale(1.05);
 }
-
 @keyframes scroll-left {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -260,79 +300,4 @@ section {
     .placeholder {
         aspect-ratio: 3 / 4;
     }
-}
-.gallery-widgets {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 20px;
-  animation: fadeSlideIn 1s ease;
-}
-
-.widget-btn {
-  padding: 10px 15px;
-  background: rgba(50, 50, 50, 0.8);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.widget-btn:hover {
-  transform: scale(1.1);
-  background: rgba(80, 80, 80, 0.9);
-}
-
-/* Animation */
-@keyframes fadeSlideIn {
-  0% { opacity: 0; transform: translateY(-20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-.widget-window {
-  display: none; /* hidden by default */
-  position: fixed;
-  top: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
-  max-height: 80vh;
-  overflow-y: auto;
-  background: rgba(0,0,0,0.9);
-  border-radius: 10px;
-  padding: 20px;
-  z-index: 2000;
-  animation: fadeIn 0.5s ease;
-}
-
-.widget-window h3 {
-  color: white;
-  margin-bottom: 15px;
-}
-
-.widget-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 12px;
-}
-
-.widget-grid img {
-  width: 100%;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.widget-grid img:hover {
-  transform: scale(1.05);
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-.art-grid {
-  display: none; /* hidden until a widget is clicked */
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
 }
