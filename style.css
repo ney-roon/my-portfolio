@@ -211,17 +211,19 @@ section {
 
 /* Moving Gallery */
 .scroll-container {
-    display: flex;
-    gap: 20px;
-    overflow: hidden;
-    white-space: nowrap;
-    animation: scroll-left 15s linear infinite;
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 200px; /* adjust based on your image size */
+  animation: scroll-left 15s linear infinite;
 }
+
 .scroll-container img {
-    width: 200px;
-    height: auto;
-    border-radius: 8px;
+  height: 100%;
+  border-radius: 8px;
 }
+
 @keyframes scroll-left {
     0% { transform: translateX(100%); }
     100% { transform: translateX(-100%); }
