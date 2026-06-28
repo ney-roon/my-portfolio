@@ -212,34 +212,29 @@ section {
 /* Moving Gallery */
 .scroll-container {
   display: flex;
-  gap: 30px;              /* spacing between images */
-  overflow: hidden;       /* hides overflow outside container */
-  align-items: center;    /* vertically centers images */
-  height: 250px;          /* give enough room for taller images */
-  animation: scroll-left 25s linear infinite;
+  gap: 30px;
+  overflow: hidden;
+  align-items: center;
+  height: auto;                /* let container adjust naturally */
+  animation: scroll-left 30s linear infinite;
 }
 
 .scroll-container img {
-  max-height: 100%;       /* ensures images fit inside container */
-  width: auto;            /* keeps aspect ratio */
-  object-fit: contain;    /* shows full image without cropping */
+  height: 200px;               /* consistent height for all images */
+  width: auto;                 /* keep aspect ratio */
+  object-fit: cover;           /* fills space neatly */
   border-radius: 8px;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
 .scroll-container img:hover {
-  transform: scale(1.05); /* zoom effect on hover */
+  transform: scale(1.05);
 }
 
-/* Keyframes for continuous scrolling */
 @keyframes scroll-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 }
 
 /* Fade-in animation for modal */
