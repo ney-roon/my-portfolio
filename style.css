@@ -289,3 +289,45 @@ section {
   0% { opacity: 0; transform: translateY(-20px); }
   100% { opacity: 1; transform: translateY(0); }
 }
+.widget-window {
+  display: none; /* hidden by default */
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-height: 80vh;
+  overflow-y: auto;
+  background: rgba(0,0,0,0.9);
+  border-radius: 10px;
+  padding: 20px;
+  z-index: 2000;
+  animation: fadeIn 0.5s ease;
+}
+
+.widget-window h3 {
+  color: white;
+  margin-bottom: 15px;
+}
+
+.widget-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.widget-grid img {
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.widget-grid img:hover {
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}

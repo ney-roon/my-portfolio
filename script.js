@@ -66,19 +66,31 @@ backToTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-// --- Gallery Widgets Filtering ---
-const buttons = document.querySelectorAll(".widget-btn");
-const images = document.querySelectorAll(".art-grid img");
+// --- Widget Windows ---
+const widgetButtons = document.querySelectorAll(".widget-btn");
+const widgetWindows = document.querySelectorAll(".widget-window");
 
-buttons.forEach(btn => {
+widgetButtons.forEach(btn => {
   btn.addEventListener("click", () => {
-    const filter = btn.getAttribute("data-filter");
-    images.forEach(img => {
-      if (filter === "all" || img.alt.toLowerCase().includes(filter)) {
-        img.parentElement.style.display = "block"; // show placeholder
-      } else {
-        img.parentElement.style.display = "none";  // hide placeholder
-      }
-    });
+    const targetId = btn.getAttribute("data-target");
+
+    // Hide all windows first
+    widgetWindows.forEach(win => win.style.display = "none");
+
+    // Show the selected window
+    const targetWindow = document.getElementById(targetId);
+    if (targetWindow) {
+      targetWindow.style.display = "block";
+    }
   });
 });
+
+// Optional: close window when clicking outside
+document.addEventListener("click", (e) => {
+  widgetWindows.forEach(win => {
+    if (win.style.display === "block" && !win.contains(e.target) && !e.target.classList.contains("widget-btn")) {
+      win.style.display = "none";
+    }
+  });
+});
+
