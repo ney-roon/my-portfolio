@@ -244,7 +244,7 @@ section {
   display: flex;
   gap: 30px;
   align-items: center;
-  animation: scroll-left 40s linear infinite;
+  animation: scroll-left 20s linear infinite;
 }
 .scroll-container img {
   height: 200px;
@@ -307,7 +307,7 @@ section {
   display: flex;
   gap: 30px;
   align-items: center;
-  animation: scroll-right 40s linear infinite;
+  animation: scroll-right 20s linear infinite;
 }
 
 .art-scroll-track img.responsive-image {
