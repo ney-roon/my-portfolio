@@ -116,3 +116,19 @@ document.getElementById('addImage').addEventListener('change', function(event) {
     event.target.value = "";
   }
 });
+// Add uploaded image to art gallery
+document.getElementById('addImage').addEventListener('change', function(event) {
+  const file = event.target.files[0];
+  if (file) {
+    const img = document.createElement('img');
+    img.src = URL.createObjectURL(file); // temporary preview
+    img.alt = "user-uploaded";
+    img.classList.add('responsive-image');
+
+    // Append to art gallery track
+    document.getElementById('artTrack').appendChild(img);
+
+    // Reset input so you can upload again
+    event.target.value = "";
+  }
+});
