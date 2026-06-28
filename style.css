@@ -211,18 +211,21 @@ section {
 
 /* Moving Gallery */
 .scroll-container {
+  overflow: hidden;        /* viewport window */
+  height: 250px;           /* adjust based on tallest image */
+  position: relative;
+}
+
+.scroll-track {
   display: flex;
   gap: 30px;
-  overflow: hidden;
-  align-items: center;
-  height: auto;                /* let container adjust naturally */
-  animation: scroll-left 30s linear infinite;
+  animation: scroll-left 40s linear infinite; /* smooth scrolling */
 }
 
 .scroll-container img {
-  height: 200px;               /* consistent height for all images */
-  width: auto;                 /* keep aspect ratio */
-  object-fit: cover;           /* fills space neatly */
+  height: 200px;           /* consistent height */
+  width: auto;             /* keep aspect ratio */
+  object-fit: cover;       /* fills neatly */
   border-radius: 8px;
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -233,8 +236,8 @@ section {
 }
 
 @keyframes scroll-left {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* Fade-in animation for modal */
