@@ -323,3 +323,28 @@ section {
 #backBtn:hover {
   background: rgba(80,80,80,0.9);
 }
+.art-grid {
+  overflow: hidden;       /* hide overflow */
+  white-space: nowrap;    /* keep items in one line */
+}
+
+.art-grid .placeholder {
+  display: inline-block;  /* line up horizontally */
+  margin-right: 15px;     /* spacing between images */
+}
+
+.art-grid img {
+  height: 200px;          /* adjust size */
+  border-radius: 8px;
+}
+
+/* Animation track */
+.art-grid {
+  display: flex;
+  animation: slide-right 40s linear infinite;
+}
+
+@keyframes slide-right {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
