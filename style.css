@@ -212,17 +212,19 @@ section {
 /* Moving Gallery */
 .scroll-container {
   display: flex;
-  gap: 30px; /* spacing between images */
-  overflow: hidden;
-  white-space: nowrap;
-  height: 200px; /* adjust based on image size */
-  animation: scroll-left 15s linear infinite;
+  gap: 30px;              /* spacing between images */
+  overflow: hidden;       /* hides overflow outside container */
+  align-items: center;    /* vertically centers images */
+  height: 250px;          /* give enough room for taller images */
+  animation: scroll-left 25s linear infinite;
 }
 
 .scroll-container img {
-  height: 100%;
+  max-height: 100%;       /* ensures images fit inside container */
+  width: auto;            /* keeps aspect ratio */
+  object-fit: contain;    /* shows full image without cropping */
   border-radius: 8px;
-  cursor: pointer; /* shows clickable hand icon */
+  cursor: pointer;
   transition: transform 0.3s ease;
 }
 
@@ -230,11 +232,14 @@ section {
   transform: scale(1.05); /* zoom effect on hover */
 }
 
-
-
+/* Keyframes for continuous scrolling */
 @keyframes scroll-left {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 /* Fade-in animation for modal */
