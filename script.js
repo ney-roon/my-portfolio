@@ -66,3 +66,19 @@ backToTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
+// --- Gallery Widgets Filtering ---
+const buttons = document.querySelectorAll(".widget-btn");
+const images = document.querySelectorAll(".art-grid img");
+
+buttons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const filter = btn.getAttribute("data-filter");
+    images.forEach(img => {
+      if (filter === "all" || img.alt.toLowerCase().includes(filter)) {
+        img.parentElement.style.display = "block"; // show placeholder
+      } else {
+        img.parentElement.style.display = "none";  // hide placeholder
+      }
+    });
+  });
+});
