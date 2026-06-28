@@ -66,31 +66,26 @@ backToTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-// --- Widget Windows ---
+// --- Gallery Widgets Control ---
 const widgetButtons = document.querySelectorAll(".widget-btn");
-const widgetWindows = document.querySelectorAll(".widget-window");
+const artGrid = document.querySelector(".art-grid");
+const images = document.querySelectorAll(".art-grid img");
 
 widgetButtons.forEach(btn => {
   btn.addEventListener("click", () => {
-    const targetId = btn.getAttribute("data-target");
+    const filter = btn.getAttribute("data-filter");
 
-    // Hide all windows first
-    widgetWindows.forEach(win => win.style.display = "none");
+    // Show the grid when a widget is clicked
+    artGrid.style.display = "grid";
 
-    // Show the selected window
-    const targetWindow = document.getElementById(targetId);
-    if (targetWindow) {
-      targetWindow.style.display = "block";
-    }
-  });
-});
-
-// Optional: close window when clicking outside
-document.addEventListener("click", (e) => {
-  widgetWindows.forEach(win => {
-    if (win.style.display === "block" && !win.contains(e.target) && !e.target.classList.contains("widget-btn")) {
-      win.style.display = "none";
-    }
+    // Filter images by category
+    images.forEach(img => {
+      if (filter === "all" || img.alt.toLowerCase().includes(filter)) {
+        img.parentElement.style.display = "block"; // show placeholder
+      } else {
+        img.parentElement.style.display = "none";  // hide placeholder
+      }
+    });
   });
 });
 
