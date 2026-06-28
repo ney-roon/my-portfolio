@@ -331,3 +331,8 @@ section {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
 }
+.art-grid {
+  display: none; /* hidden until a widget is clicked */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
