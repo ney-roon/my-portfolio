@@ -212,17 +212,25 @@ section {
 /* Moving Gallery */
 .scroll-container {
   display: flex;
-  gap: 20px;
+  gap: 30px; /* spacing between images */
   overflow: hidden;
   white-space: nowrap;
-  height: 200px; /* adjust based on your image size */
+  height: 200px; /* adjust based on image size */
   animation: scroll-left 15s linear infinite;
 }
 
 .scroll-container img {
   height: 100%;
   border-radius: 8px;
+  cursor: pointer; /* shows clickable hand icon */
+  transition: transform 0.3s ease;
 }
+
+.scroll-container img:hover {
+  transform: scale(1.05); /* zoom effect on hover */
+}
+
+
 
 @keyframes scroll-left {
     0% { transform: translateX(100%); }
