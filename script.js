@@ -70,22 +70,33 @@ backToTop.addEventListener("click", () => {
 const widgetButtons = document.querySelectorAll(".widget-btn");
 const artGrid = document.querySelector(".art-grid");
 const images = document.querySelectorAll(".art-grid img");
+const backBtn = document.getElementById("backBtn");
+const widgetPanel = document.querySelector(".gallery-widgets");
 
 widgetButtons.forEach(btn => {
   btn.addEventListener("click", () => {
     const filter = btn.getAttribute("data-filter");
 
-    // Show the grid when a widget is clicked
+    // Hide widgets, show grid + back button
+    widgetPanel.style.display = "none";
     artGrid.style.display = "grid";
+    backBtn.style.display = "block";
 
     // Filter images by category
     images.forEach(img => {
       if (filter === "all" || img.alt.toLowerCase().includes(filter)) {
-        img.parentElement.style.display = "block"; // show placeholder
+        img.parentElement.style.display = "block";
       } else {
-        img.parentElement.style.display = "none";  // hide placeholder
+        img.parentElement.style.display = "none";
       }
     });
   });
+});
+
+// Back button returns to widget view
+backBtn.addEventListener("click", () => {
+  artGrid.style.display = "none";
+  backBtn.style.display = "none";
+  widgetPanel.style.display = "flex";
 });
 
