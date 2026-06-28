@@ -351,9 +351,10 @@ section {
 header {
   position: relative;
   background-image: url("Images/Silence\ please\ Painting\ in\ progess.JPG");
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   color: white;
+  
 }
 
 header::before {
