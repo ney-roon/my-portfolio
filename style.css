@@ -329,6 +329,10 @@ section {
   overflow: hidden;       /* hide overflow */
   white-space: nowrap;    /* keep items in one line */
 }
+.art-track {
+  display: inline-flex;
+  animation: scroll-right 40s linear infinite;
+}
 
 .art-grid .placeholder {
   display: inline-block;  /* line up horizontally */
