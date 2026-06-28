@@ -323,40 +323,33 @@ section {
 #backBtn:hover {
   background: rgba(80,80,80,0.9);
 }
-.art-grid {
-    display: flex;                /* line up images horizontally */
-  gap: 20px;
-  overflow: hidden;       /* hide overflow */
-  white-space: nowrap;    /* keep items in one line */
+.art-scroll-container {
+  overflow: hidden;
+  white-space: nowrap;
 }
-.art-track {
+
+.art-scroll-track {
   display: inline-flex;
   animation: scroll-right 40s linear infinite;
 }
 
-.art-grid .placeholder {
-  display: inline-block;  /* line up horizontally */
-  margin-right: 15px;     /* spacing between images */
+.art-scroll-track .placeholder {
   flex: 0 0 auto;
+  margin-right: 15px;
 }
 
-.art-grid img {
-  height: 200px;          /* adjust size */
-  width: auto;                  /* keep proportions */
-  object-fit: cover; 
+.art-scroll-track img {
+  height: 200px;
+  width: auto;
+  object-fit: cover;
   border-radius: 8px;
 }
 
-/* Animation track */
-.art-grid {
-  display: flex;
-  animation: slide-right 40s linear infinite;
+@keyframes scroll-right {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
 }
 
-@keyframes slide-right {
-  0%   { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
 header {
   position: relative;
   background-image: url("Images/Silence\ please\ Painting\ in\ progess.JPG");
