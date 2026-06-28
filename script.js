@@ -132,3 +132,21 @@ document.getElementById('addImage').addEventListener('change', function(event) {
     event.target.value = "";
   }
 });
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const formData = {
+    name: e.target.name.value,
+    email: e.target.email.value,
+    message: e.target.message.value
+  };
+
+  fetch("YOUR_GOOGLE_WEB_APP_URL", {
+    method: "POST",
+    body: JSON.stringify(formData)
+  })
+  .then(response => alert("Message sent successfully!"))
+  .catch(error => alert("Error sending message."));
+  
+  e.target.reset();
+});
