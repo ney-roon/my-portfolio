@@ -414,5 +414,36 @@ header h1, header p, header nav {
 .gallery-item:hover .overlay-text {
   opacity: 1; /* shows text when hovered */
 }
+.widget-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 140px;
+  margin: 10px;
+  background: rgba(50, 50, 50, 0.8);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.widget-btn:hover {
+  transform: scale(1.05);
+  background: rgba(80, 80, 80, 0.9);
+}
+
+.widget-image {
+  max-width: 60%;
+  max-height: 60%;
+  margin-bottom: 8px;
+  border-radius: 6px;
+}
+
+.widget-btn span {
+  color: white;
+  font-size: 14px;
+}
 
 
