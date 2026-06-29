@@ -332,3 +332,27 @@ section {
   position: relative;
   display: inline-block;
 }
+.upload-widget {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  margin: 20px 0;
+}
+
+.add-image-btn {
+  font-size: 16px;          /* slightly bigger + sign */
+  width: 32px;              /* small circle */
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(50, 50, 50, 0.7);
+  color: white;
+  border-radius: 50%;       /* makes it round */
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.add-image-btn:hover {
+  background: rgba(80, 80, 80, 0.9);
+  transform: scale(1.1);
+}
