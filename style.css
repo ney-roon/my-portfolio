@@ -286,7 +286,7 @@ section {
 
 /* Art Scroll Gallery */
 .art-scroll-container {
-  overflow: hidden;
+  overflow: visible;
   height: 250px;
   position: relative;
 }
