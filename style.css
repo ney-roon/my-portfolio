@@ -385,5 +385,34 @@ header h1, header p, header nav {
     min-height: 900px; /* taller for mobile scrolling */
   }
 }
+.gallery-item {
+  position: relative;
+  display: inline-block;
+}
+
+.gallery-item img {
+  display: block;
+  width: 200px; /* adjust to your gallery size */
+  height: auto;
+}
+
+.overlay-text {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* doesn’t block clicks */
+}
+
+.gallery-item:hover .overlay-text {
+  opacity: 1; /* shows text when hovered */
+}
 
 
