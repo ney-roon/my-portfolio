@@ -150,3 +150,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   
   e.target.reset();
 });
+document.addEventListener("contextmenu", (e) => e.preventDefault());
+document.querySelectorAll("img").forEach(img => {
+  img.addEventListener("dragstart", (e) => e.preventDefault());
+});
