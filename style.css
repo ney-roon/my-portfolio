@@ -367,3 +367,17 @@ header h1, header p, header nav {
   border-radius: 4px;
   pointer-events: none; /* don’t block clicks */
 }
+.form-container {
+  position: relative;
+  width: 100%;       /* full width of parent */
+  padding-top: 120%; /* aspect ratio (adjust for height) */
+}
+
+.form-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;       /* responsive width */
+  height: 100%;      /* responsive height */
+  border: none;
+}
