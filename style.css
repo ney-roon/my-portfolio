@@ -384,3 +384,38 @@ section {
   0% { transform: translateY(0) rotate(0deg); }
   100% { transform: translateY(100vh) rotate(360deg); }
 }
+/* --- Responsive Fixes --- */
+@media (max-width: 600px) {
+  /* Make iframe scale */
+  .form-container iframe {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Shrink gallery images */
+  .scroll-container img,
+  .art-scroll-track img.responsive-image {
+    height: 120px;
+    width: auto;
+  }
+
+  /* Allow containers to shrink */
+  .scroll-container,
+  .art-scroll-container {
+    height: auto;
+    max-height: 200px;
+  }
+
+  /* Make widget buttons relative */
+  .widget-btn {
+    width: 30vw;
+    height: 30vw;
+    max-width: 120px;
+    max-height: 120px;
+  }
+
+  /* Contact icons smaller */
+  .contact-icons img {
+    width: 28px;
+  }
+}
