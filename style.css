@@ -216,6 +216,7 @@ section {
 /* Contact Form */
 .contact-form {
   display: flex;
+  justify-content: center;
   flex-direction: column;
   gap: 10px;
   max-width: 400px;
@@ -258,7 +259,7 @@ section {
 
 /* Moving Gallery */
 .scroll-container {
-  overflow: hidden;
+  overflow: visible;
   height: 250px;
   position: relative;
 }
