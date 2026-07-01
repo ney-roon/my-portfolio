@@ -157,7 +157,7 @@ document.querySelectorAll("img").forEach(img => {
 // Initialize Supabase
 const { createClient } = supabase;
 
-const supabaseUrl = "https://YOUR_PROJECT_ID.supabase.co";   // from API settings
+const supabaseUrl = "https://ysqcsanlubthizcmuilo.supabase.co";   // from API settings
 const supabaseKey = "sb_publishable_2cNsfN_8rfOT9RmO__fqrg_N8Yg5UjW"; // your anon key
 const supabaseClient = createClient(supabaseUrl, supabaseKey);
 
