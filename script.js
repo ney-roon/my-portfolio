@@ -1,6 +1,7 @@
 let currentIndex = 0;
 let imageElements = [];
 
+// --- Gallery popup controls ---
 document.addEventListener("DOMContentLoaded", function () {
     // Collect all gallery images
     imageElements = Array.from(document.querySelectorAll(".placeholder img"));
@@ -32,7 +33,6 @@ function openPopup(imageElement) {
     modal.style.display = 'block';
     modalImg.src = imageElement.src;
 
-    // Fixed sizing
     modalImg.style.width = "100%";
     modalImg.style.height = "auto";
     modalImg.style.objectFit = "contain";
@@ -54,7 +54,10 @@ function prevImage() {
         currentIndex--;
         openPopup(imageElements[currentIndex]);
     }
-}const backToTop = document.getElementById("backToTop");
+}
+
+// --- Back to Top button ---
+const backToTop = document.getElementById("backToTop");
 window.addEventListener("scroll", () => {
     if (window.scrollY > 300) {
         backToTop.style.display = "block";
@@ -100,23 +103,7 @@ backBtn.addEventListener("click", () => {
   widgetPanel.style.display = "flex";
 });
 
-// Handle image upload and add to gallery
-document.getElementById('addImage').addEventListener('change', function(event) {
-  const file = event.target.files[0];
-  if (file) {
-    const img = document.createElement('img');
-    img.src = URL.createObjectURL(file); // temporary preview
-    img.alt = "user-uploaded";           // fallback alt text
-    img.classList.add('responsive-image');
-
-    // Append to art gallery track
-    document.getElementById('artTrack').appendChild(img);
-
-    // Optional: reset file input so you can upload again
-    event.target.value = "";
-  }
-});
-// Add uploaded image to art gallery
+// --- Handle image upload (local preview only) ---
 document.getElementById('addImage').addEventListener('change', function(event) {
   const file = event.target.files[0];
   if (file) {
@@ -132,6 +119,8 @@ document.getElementById('addImage').addEventListener('change', function(event) {
     event.target.value = "";
   }
 });
+
+// --- Contact form (Google Apps Script endpoint) ---
 document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
 
@@ -150,114 +139,14 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
   
   e.target.reset();
 });
+
+// --- Disable right-click and drag on images ---
 document.addEventListener("contextmenu", (e) => e.preventDefault());
 document.querySelectorAll("img").forEach(img => {
   img.addEventListener("dragstart", (e) => e.preventDefault());
 });
-// Initialize Supabase
-const { createClient } = supabase;
 
-const supabaseUrl = "https://ysqcsanlubthizcmuilo.supabase.co";   // from API settings
-const supabaseKey = "sb_publishable_2cNsfN_8rfOT9RmO__fqrg_N8Yg5UjW"; // your anon key
-const supabaseClient = createClient(supabaseUrl, supabaseKey);
-
-let imageElements = [];
-let currentIndex = 0;
-
-// --- Upload image to Supabase ---
-document.getElementById('addImage').addEventListener('change', async function(event) {
-  const file = event.target.files[0];
-  if (file) {
-    // Upload to Supabase Storage bucket "gallery"
-    const { error } = await supabaseClient.storage
-      .from('gallery')
-      .upload(`uploads/${file.name}`, file, { upsert: true });
-
-    if (error) {
-      console.error("Upload error:", error);
-      return;
-    }
-
-    // Refresh gallery after upload
-    loadGallery();
-    event.target.value = "";
-  }
-});
-
-// --- Load images from Supabase on page refresh ---
-async function loadGallery() {
-  const { data, error } = await supabaseClient.storage.from('gallery').list('uploads/');
-  if (error) {
-    console.error("List error:", error);
-    return;
-  }
-
-  const artTrack = document.getElementById('artTrack');
-  artTrack.innerHTML = ""; // clear old images
-  imageElements = [];
-
-  for (const file of data) {
-    const { data: publicUrlData } = supabaseClient.storage
-      .from('gallery')
-      .getPublicUrl(`uploads/${file.name}`);
-
-    const img = document.createElement('img');
-    img.src = publicUrlData.publicUrl;
-    img.classList.add('responsive-image');
-
-    artTrack.appendChild(img);
-    imageElements.push(img);
-
-    // Double‑click opens popup
-    img.addEventListener("dblclick", () => {
-      currentIndex = imageElements.indexOf(img);
-      openPopup(img);
-    });
-  }
-}
-
-// --- Popup modal controls ---
-function openPopup(imageElement) {
-  const modal = document.getElementById('popupModal');
-  const modalImg = document.getElementById('popupImage');
-
-  modal.style.display = 'block';
-  modalImg.src = imageElement.src;
-
-  modalImg.style.width = "100%";
-  modalImg.style.height = "auto";
-  modalImg.style.objectFit = "contain";
-}
-
-function closePopup() {
-  document.getElementById('popupModal').style.display = 'none';
-}
-
-function nextImage() {
-  if (currentIndex < imageElements.length - 1) {
-    currentIndex++;
-    openPopup(imageElements[currentIndex]);
-  }
-}
-
-function prevImage() {
-  if (currentIndex > 0) {
-    currentIndex--;
-    openPopup(imageElements[currentIndex]);
-  }
-}
-
-// --- Buttons & keyboard controls ---
-document.getElementById("nextBtn").addEventListener("click", nextImage);
-document.getElementById("prevBtn").addEventListener("click", prevImage);
-document.addEventListener("keydown", function (e) {
-  if (e.key === "ArrowRight") nextImage();
-  if (e.key === "ArrowLeft") prevImage();
-  if (e.key === "Escape") closePopup();
-});
-
-// Load gallery on startup
-document.addEventListener("DOMContentLoaded", loadGallery);
+// --- Video popup greeting ---
 document.addEventListener("DOMContentLoaded", () => {
   const videoPopup = document.getElementById("videoPopup");
   const introVideo = document.getElementById("introVideo");
