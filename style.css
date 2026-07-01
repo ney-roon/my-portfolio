@@ -414,10 +414,18 @@ section {
   display: flex;
   justify-content: center;
   width: 100%;
+  margin: 0 auto;
 }
 
 .form-container iframe {
-  width: 100%;
-  max-width: 640px; /* keeps it neat on laptop */
-  height: auto;
+  width: 100%;        /* fills container */
+  max-width: 800px;   /* neat on laptop */
+  height: 80vh;       /* scales with viewport height */
+  border: none;
+}
+@media (max-width: 600px) {
+  .form-container iframe {
+    width: 95%;       /* slight padding */
+    height: auto;     /* adapts naturally */
+  }
 }
