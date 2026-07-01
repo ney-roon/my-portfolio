@@ -258,3 +258,15 @@ document.addEventListener("keydown", function (e) {
 
 // Load gallery on startup
 document.addEventListener("DOMContentLoaded", loadGallery);
+document.addEventListener("DOMContentLoaded", () => {
+  const videoPopup = document.getElementById("videoPopup");
+  const introVideo = document.getElementById("introVideo");
+
+  // Show popup when page loads
+  videoPopup.style.display = "flex";
+
+  // Hide popup when video ends
+  introVideo.addEventListener("ended", () => {
+    videoPopup.style.display = "none";
+  });
+});
