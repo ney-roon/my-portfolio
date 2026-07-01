@@ -410,3 +410,14 @@ section {
     width: auto;
   }
 }
+.form-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.form-container iframe {
+  width: 100%;
+  max-width: 640px; /* keeps it neat on laptop */
+  height: auto;
+}
