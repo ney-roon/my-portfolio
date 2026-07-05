@@ -595,24 +595,48 @@ section {
 section {
   position: relative;
   min-height: 100vh;
-  width: 100%;
-  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transform-style: preserve-3d;
 }
-html, body {
+
+html {
   height: 100%;
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  perspective: 1px;   /* enables parallax depth */
+  transform-style: preserve-3d;
 }
-#gallery { z-index: 5; }
-#about { z-index: 4; }
-#contact { z-index: 3; }
-#moving-gallery { z-index: 2; }
-#communityShowcase { z-index: 1; }
-section {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s ease;
+
+#gallery::before {
+  background-image: url("Images/Paintings/Painting 4.JPG");
 }
+#about::before {
+  background-image: url("Images/Paintings/Painting 7.png");
+}
+#contact::before {
+  background-image: url("Images/Paintings/Painting 8.jpeg");
+}
+#moving-gallery::before {
+  background-image: url("Images/Paintings/Painting 3.JPG");
+}
+#communityShowcase::before {
+  background-image: url("Images/Paintings/Painting 9.png");
+}
+
+section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: translateZ(-1px) scale(2); /* parallax depth */
+  z-index: -1;
+}
+
 section.visible {
   opacity: 1;
   transform: translateY(0);
