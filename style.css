@@ -462,3 +462,43 @@ section {
 .portfolioCard:hover {
   transform: scale(1.05);
 }
+/* Sections */
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+  text-align: center;
+}
+
+/* Gallery */
+#gallery {
+  background: #fff; /* light background */
+  color: #111;
+}
+
+/* About */
+#about {
+  background: #111; /* dark background */
+  color: #fff;
+}
+
+/* Contact */
+#contact {
+  background: #f9f9f9; /* soft light background */
+  color: #111;
+}
+
+/* Moving Gallery */
+#moving-gallery {
+  background: #111; /* dark background */
+  color: #fff;
+}
+
+/* Community Showcase */
+#communityShowcase {
+  background: #fff; /* light background */
+  color: #111;
+}
