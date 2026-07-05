@@ -131,6 +131,11 @@
         alert(error.message);
       }
     }
+    // Expose functions to global scope
+window.signup = signup;
+window.login = login;
+window.closePopup = closePopup;
+
   </script>
 </body>
 </html>
