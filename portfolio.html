@@ -9,22 +9,25 @@
   <div id="gallery"></div>
 
   <script type="module">
+    // ✅ Only one firebaseConfig
     const firebaseConfig = {
-  apiKey: "AIzaSyAgaGbqIhaJrY_il83Cd0qWAcSQ4-w-59U",
-  authDomain: "my-portfolio-fd7a4.firebaseapp.com",
-  projectId: "my-portfolio-fd7a4",
-  storageBucket: "my-portfolio-fd7a4.appspot.com",
-  messagingSenderId: "1075228854748",
-  appId: "1:1075228854748:web:cad3c816749243bc7fa719",
-  measurementId: "G-84G30WZ1FK"
-};
+      apiKey: "AIzaSyAgaGbqIhaJrY_il83Cd0qWAcSQ4-w-59U",
+      authDomain: "my-portfolio-fd7a4.firebaseapp.com",
+      projectId: "my-portfolio-fd7a4",
+      storageBucket: "my-portfolio-fd7a4.appspot.com",
+      messagingSenderId: "1075228854748",
+      appId: "1:1075228854748:web:cad3c816749243bc7fa719",
+      measurementId: "G-84G30WZ1FK"
+    };
+
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-    const firebaseConfig = { /* your config here */ };
+    // ✅ Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
+    // Get UID from URL
     const params = new URLSearchParams(window.location.search);
     const uid = params.get("uid");
 
@@ -37,13 +40,17 @@
         document.getElementById("bio").innerText = data.bio || "";
         const gallery = document.getElementById("gallery");
         gallery.innerHTML = "";
-        data.projects.forEach(project => {
-          const img = document.createElement("img");
-          img.src = project.imageUrl;
-          img.alt = project.name;
-          img.style.width = "150px";
-          gallery.appendChild(img);
-        });
+        if (Array.isArray(data.projects)) {
+          data.projects.forEach(project => {
+            const img = document.createElement("img");
+            img.src = project.imageUrl;
+            img.alt = project.name;
+            img.style.width = "150px";
+            gallery.appendChild(img);
+          });
+        }
+      } else {
+        document.getElementById("title").innerText = "No portfolio found!";
       }
     }
 
