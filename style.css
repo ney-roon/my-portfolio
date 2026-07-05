@@ -577,7 +577,7 @@ section {
   display: inline-block;
   margin: 40px auto;
   padding: 14px 28px;
-  background: #6c63ff;        /* bold accent color */
+  background: #c0bfde;        /* bold accent color */
   color: #fff;
   font-size: 1.2rem;
   font-weight: 600;
@@ -588,23 +588,7 @@ section {
 }
 
 .cta-btn:hover {
-  background: #4b45d6;        /* darker shade on hover */
+  background: #7e7e87;        /* darker shade on hover */
   transform: translateY(-3px);
   box-shadow: 0 6px 16px rgba(0,0,0,0.3);
 }
-section {
-  position: relative;
-  min-height: 100vh;
-  width: 100%;
-  scroll-snap-align: start;
-}
-html, body {
-  height: 100%;
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-}
-#gallery { z-index: 5; }
-#about { z-index: 4; }
-#contact { z-index: 3; }
-#moving-gallery { z-index: 2; }
-#communityShowcase { z-index: 1; }
