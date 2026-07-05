@@ -608,12 +608,3 @@ html, body {
 #contact { z-index: 3; }
 #moving-gallery { z-index: 2; }
 #communityShowcase { z-index: 1; }
-section {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s ease;
-}
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
