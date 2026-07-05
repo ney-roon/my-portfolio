@@ -592,3 +592,28 @@ section {
   transform: translateY(-3px);
   box-shadow: 0 6px 16px rgba(0,0,0,0.3);
 }
+section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+}
+html, body {
+  height: 100%;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+#gallery { z-index: 5; }
+#about { z-index: 4; }
+#contact { z-index: 3; }
+#moving-gallery { z-index: 2; }
+#communityShowcase { z-index: 1; }
+section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
