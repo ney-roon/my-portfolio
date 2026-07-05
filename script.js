@@ -159,3 +159,45 @@ document.addEventListener("DOMContentLoaded", () => {
     videoPopup.style.display = "none";
   });
 });
+const firebaseConfig = {
+  apiKey: "AIzaSyAgaGbqIhaJrY_il83Cd0qWAcSQ4-w-59U",
+  authDomain: "my-portfolio-fd7a4.firebaseapp.com",
+  projectId: "my-portfolio-fd7a4",
+  storageBucket: "my-portfolio-fd7a4.appspot.com",
+  messagingSenderId: "1075228854748",
+  appId: "1:1075228854748:web:cad3c816749243bc7fa719",
+  measurementId: "G-84G30WZ1FK"
+};
+import { getFirestore, collection, getDocs, doc, getDoc } 
+  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const db = getFirestore(app);
+
+async function loadCommunityPortfolios() {
+  const querySnapshot = await getDocs(collection(db, "users"));
+  const list = document.getElementById("portfolioList");
+  const count = document.getElementById("portfolioCount");
+  list.innerHTML = "";
+  let total = 0;
+
+  for (const userDoc of querySnapshot.docs) {
+    const portfolioRef = doc(db, "users", userDoc.id, "portfolio", "main");
+    const snap = await getDoc(portfolioRef);
+    if (snap.exists()) {
+      total++;
+      const data = snap.data();
+      const card = document.createElement("div");
+      card.className = "portfolioCard";
+      card.innerHTML = `
+        <h3>${data.title || "Untitled Portfolio"}</h3>
+        <p>${data.bio || ""}</p>
+        <a href="portfolio.html?uid=${userDoc.id}" target="_blank">View Portfolio</a>
+      `;
+      list.appendChild(card);
+    }
+  }
+  count.innerText = `🎉 ${total} portfolios created so far!`;
+}
+
+// Run when page loads
+window.addEventListener("DOMContentLoaded", loadCommunityPortfolios);

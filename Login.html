@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+</head>
+<body>
+  <h2>Login / Sign Up</h2>
+  <input id="email" type="email" placeholder="Email">
+  <input id="password" type="password" placeholder="Password">
+  <button onclick="signup()">Sign Up</button>
+  <button onclick="login()">Log In</button>
+
+  
+
+  <script type="module">
+    const firebaseConfig = {
+  apiKey: "AIzaSyAgaGbqIhaJrY_il83Cd0qWAcSQ4-w-59U",
+  authDomain: "my-portfolio-fd7a4.firebaseapp.com",
+  projectId: "my-portfolio-fd7a4",
+  storageBucket: "my-portfolio-fd7a4.appspot.com",
+  messagingSenderId: "1075228854748",
+  appId: "1:1075228854748:web:cad3c816749243bc7fa719",
+  measurementId: "G-84G30WZ1FK"
+};
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } 
+      from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    const firebaseConfig = { /* your config here */ };
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    async function signup() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      await createUserWithEmailAndPassword(auth, email, password);
+      window.location.href = "builder.html";
+    }
+
+    async function login() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      await signInWithEmailAndPassword(auth, email, password);
+      window.location.href = "builder.html";
+    }
+  </script>
+</body>
+</html>
+ 

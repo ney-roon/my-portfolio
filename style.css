@@ -447,3 +447,18 @@ section {
   height: auto;
   border-radius: 8px;
 }
+#portfolioList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.portfolioCard {
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 200px;
+  background: #fafafa;
+  transition: transform 0.3s ease;
+}
+.portfolioCard:hover {
+  transform: scale(1.05);
+}
