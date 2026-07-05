@@ -610,22 +610,11 @@ html {
   transform-style: preserve-3d;
 }
 
-
-#gallery::before {
-  background-image: url("Images/Paintings/Painting 4.JPG");
-}
-#about::before {
-  background-image: url("Images/Paintings/Painting 7.png");
-}
-#contact::before {
-  background-image: url("Images/Paintings/Painting 8.jpeg");
-}
-#moving-gallery::before {
-  background-image: url("Images/Paintings/Painting 3.JPG");
-}
-#communityShowcase::before {
-  background-image: url("Images/Paintings/Painting 9.png");
-}
+#gallery { z-index: 5; }
+#about { z-index: 4; }
+#contact { z-index: 3; }
+#moving-gallery { z-index: 2; }
+#communityShowcase { z-index: 1; }
 
 section::before {
   content: "";
