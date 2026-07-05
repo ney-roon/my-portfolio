@@ -549,8 +549,29 @@ section {
 
 /* Community Showcase */
 #communityShowcase {
-  background: #fff; /* light background */
-  color: #111;
+ background-image: url("Images/Paintings/Painting\ 9.png"); /* your image path */
+  background-size: cover;       /* makes it fill the section */
+  background-position: center;  /* centers the image */
+  background-repeat: no-repeat; /* prevents tiling */
+  color: #fff;                  /* text color for contrast */
+  position: relative;
+}
+/* Transparent overlay */
+#contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5); /* semi-transparent black */
+  z-index: 0;
+}
+/* Make sure text sits above the overlay */
+#about .about-me {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  background: rgba(255,255,255,0.1); /* optional subtle box behind text */
+  padding: 20px;
+  border-radius: 12px;
 }
 .cta-btn {
   display: inline-block;
