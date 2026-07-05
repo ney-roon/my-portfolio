@@ -498,7 +498,7 @@ section {
 
 /* Moving Gallery */
 #moving-gallery {
-  background-image: url("Images/Paintings/Painting\ .JPG"); /* your image path */
+  background-image: url("Images/Paintings/Painting\ 3.PG"); /* your image path */
   background-size: cover;       /* makes it fill the section */
   background-position: center;  /* centers the image */
   background-repeat: no-repeat; /* prevents tiling */
