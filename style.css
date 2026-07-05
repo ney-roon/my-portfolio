@@ -502,3 +502,22 @@ section {
   background: #fff; /* light background */
   color: #111;
 }
+.cta-btn {
+  display: inline-block;
+  margin: 40px auto;
+  padding: 14px 28px;
+  background: #6c63ff;        /* bold accent color */
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #4b45d6;        /* darker shade on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
