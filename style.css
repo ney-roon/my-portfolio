@@ -490,8 +490,25 @@ section {
   background-size: cover;       /* makes it fill the section */
   background-position: center;  /* centers the image */
   background-repeat: no-repeat; /* prevents tiling */
-  color: #fa0505;                  /* text color for contrast */
+  color: #f9f5f5;                  /* text color for contrast */
   position: relative;
+}
+/* Transparent rectangle overlay */
+#about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5); /* semi-transparent black */
+  z-index: 0;
+}
+/* Make sure text sits above the overlay */
+#about .about-me {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  background: rgba(255,255,255,0.1); /* optional subtle box behind text */
+  padding: 20px;
+  border-radius: 12px;
 }
 
 /* Contact */
