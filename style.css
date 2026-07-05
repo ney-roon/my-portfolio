@@ -513,8 +513,12 @@ section {
 
 /* Contact */
 #contact {
-  background: #f9f9f9; /* soft light background */
-  color: #111;
+   background-image: url("Images/Paintings/Painting\ 8.jpeg"); /* your image path */
+  background-size: cover;       /* makes it fill the section */
+  background-position: center;  /* centers the image */
+  background-repeat: no-repeat; /* prevents tiling */
+  color: #fff;                  /* text color for contrast */
+  position: relative;
 }
 
 /* Moving Gallery */
