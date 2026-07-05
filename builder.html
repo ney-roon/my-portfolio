@@ -232,6 +232,12 @@
       if (user) loadLayout(user.uid);
       else window.location.href = "Login.html";
     });
+    // Make functions available to buttons
+window.addTextBlock = addTextBlock;
+window.addImageBlock = addImageBlock;
+window.saveLayout = saveLayout;
+window.logout = logout;
+
   </script>
 </body>
 </html>
