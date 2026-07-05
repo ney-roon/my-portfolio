@@ -595,38 +595,24 @@ section {
 section {
   position: relative;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  transform-style: preserve-3d;
+  width: 100%;
+  scroll-snap-align: start;
 }
-
-html {
+html, body {
   height: 100%;
-  overflow-y: auto;
-  scroll-behavior: smooth;
-  perspective: 1px;   /* enables parallax depth */
-  transform-style: preserve-3d;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
 }
-
 #gallery { z-index: 5; }
 #about { z-index: 4; }
 #contact { z-index: 3; }
 #moving-gallery { z-index: 2; }
 #communityShowcase { z-index: 1; }
-
-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transform: translateZ(-1px) scale(2); /* parallax depth */
-  z-index: -1;
+section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
 }
-
 section.visible {
   opacity: 1;
   transform: translateY(0);
