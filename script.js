@@ -4,11 +4,11 @@ let imageElements = [];
 // --- Gallery popup controls ---
 document.addEventListener("DOMContentLoaded", function () {
     // Collect all gallery images
-    imageElements = Array.from(document.querySelectorAll(".placeholder img"));
+    imageElements = Array.from(document.querySelectorAll(".art-scroll-track img"));
 
     // Double-click opens popup
-    document.querySelectorAll(".placeholder").forEach((div, index) => {
-        div.addEventListener("dblclick", function () {
+    imageElements.forEach((img, index) => {
+        img.addEventListener("dblclick", function () {
             currentIndex = index;
             openPopup(imageElements[currentIndex]);
         });
@@ -59,48 +59,10 @@ function prevImage() {
 // --- Back to Top button ---
 const backToTop = document.getElementById("backToTop");
 window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-        backToTop.style.display = "block";
-    } else {
-        backToTop.style.display = "none";
-    }
+    backToTop.style.display = window.scrollY > 300 ? "block" : "none";
 });
 backToTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-// --- Gallery Widgets Control ---
-const widgetButtons = document.querySelectorAll(".widget-btn");
-const artGrid = document.querySelector(".art-grid");
-const images = document.querySelectorAll(".art-grid img");
-const backBtn = document.getElementById("backBtn");
-const widgetPanel = document.querySelector(".gallery-widgets");
-
-widgetButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    const filter = btn.getAttribute("data-filter");
-
-    // Hide widgets, show grid + back button
-    widgetPanel.style.display = "none"; 
-    artGrid.style.display = "grid";
-    backBtn.style.display = "block";
-
-    // Filter images by category
-    images.forEach(img => {
-      if (filter === "all" || img.alt.toLowerCase().includes(filter)) {
-        img.parentElement.style.display = "block";
-      } else {
-        img.parentElement.style.display = "none";
-      }
-    });
-  });
-});
-
-// Back button returns to widget view
-backBtn.addEventListener("click", () => {
-  artGrid.style.display = "none";
-  backBtn.style.display = "none";
-  widgetPanel.style.display = "flex";
 });
 
 // --- Handle image upload (local preview only) ---
@@ -113,31 +75,11 @@ document.getElementById('addImage').addEventListener('change', function(event) {
     img.classList.add('responsive-image');
 
     // Append to art gallery track
-    document.getElementById('artTrack').appendChild(img);
+    document.querySelector('.art-scroll-track').appendChild(img);
 
     // Reset input so you can upload again
     event.target.value = "";
   }
-});
-
-// --- Contact form (Google Apps Script endpoint) ---
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-
-  const formData = {
-    name: e.target.name.value,
-    email: e.target.email.value,
-    message: e.target.message.value
-  };
-
-  fetch("YOUR_GOOGLE_WEB_APP_URL", {
-    method: "POST",
-    body: JSON.stringify(formData)
-  })
-  .then(response => alert("Message sent successfully!"))
-  .catch(error => alert("Error sending message."));
-  
-  e.target.reset();
 });
 
 // --- Disable right-click and drag on images ---
@@ -159,6 +101,8 @@ document.addEventListener("DOMContentLoaded", () => {
     videoPopup.style.display = "none";
   });
 });
+
+// --- Firebase setup ---
 const firebaseConfig = {
   apiKey: "AIzaSyAgaGbqIhaJrY_il83Cd0qWAcSQ4-w-59U",
   authDomain: "my-portfolio-fd7a4.firebaseapp.com",
@@ -168,11 +112,17 @@ const firebaseConfig = {
   appId: "1:1075228854748:web:cad3c816749243bc7fa719",
   measurementId: "G-84G30WZ1FK"
 };
+
+// ✅ Initialize Firebase
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+const app = initializeApp(firebaseConfig);
+
 import { getFirestore, collection, getDocs, doc, getDoc } 
   from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const db = getFirestore(app);
 
+// --- Load community portfolios ---
 async function loadCommunityPortfolios() {
   const querySnapshot = await getDocs(collection(db, "users"));
   const list = document.getElementById("portfolioList");
