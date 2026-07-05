@@ -610,6 +610,11 @@ html {
   transform-style: preserve-3d;
 }
 
+#gallery { z-index: 5; }
+#about { z-index: 4; }
+#contact { z-index: 3; }
+#moving-gallery { z-index: 2; }
+#communityShowcase { z-index: 1; }
 #gallery::before {
   background-image: url("Images/Paintings/Painting 4.JPG");
 }
