@@ -607,32 +607,28 @@ section {
 .btn:hover {
   background-color: #45a049; /* darker green on hover */
 }
-
-/* Instructions Style */
 .instructions {
-  margin-top: 20px;
+  background: #f9f9f9;       /* light background */
+  border: 1px solid #ddd;    /* subtle border */
   padding: 15px;
-  background: #f9f9f9;
-  border-left: 4px solid #4CAF50;
-  border-radius: 6px;
+  margin-top: 20px;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
 }
 
 .instructions h3 {
-  margin-bottom: 10px;
-  font-size: 18px;
+  margin-top: 0;
   color: #333;
+  font-size: 18px;
 }
 
 .instructions ol {
-  list-style: none;
-  padding-left: 0;
+  margin: 0;
+  padding-left: 20px;
 }
 
-.instructions ol li {
+.instructions li {
   margin: 8px 0;
-  padding: 6px 10px;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-weight: 500;
+  color: #555;
 }
+
