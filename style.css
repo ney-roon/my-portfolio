@@ -630,3 +630,12 @@ section {
   font-size: 15px;
   margin: 6px 0;
 }
+.paragraph-box {
+  background: rgba(255, 255, 255, 0.6); /* transparent white */
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+  font-size: 16px;
+  color: #222;
+  line-height: 1.6;
+}
